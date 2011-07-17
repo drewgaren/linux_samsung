@@ -33,7 +33,7 @@
 						"cpufreq-core", msg)
 
 /* UV */
-int exp_UV_mV[9] = { 150000,1450000, 1400000, 1350000, 1250000, 1200000, 1050000, 950000, 950000 };
+int exp_UV_mV[9] = { 1472000,1450000, 1400000, 1350000, 1250000, 1200000, 1050000, 950000, 950000 };
 
 /**
  * The "cpufreq driver" - the arch- or hardware-dependent low
@@ -653,7 +653,7 @@ static ssize_t show_scaling_setspeed(struct cpufreq_policy *policy, char *buf)
 /* sysfs interface for UV control */
 static ssize_t show_UV_mV_table(struct cpufreq_policy *policy, char *buf) {
 
-	return sprintf(buf, "1500 mhz: %d mV\n1400mhz: %d mV\n1300mhz: %d mV\n1200mhz: %d mV\n1000mhz: %d mV\n800mhz: %d mV\n400mhz: %d mV\n200mhz: %d mV\n100mhz: %d mV\n", exp_UV_mV[0]/1000, exp_UV_mV[1]/1000, exp_UV_mV[2]/1000, exp_UV_mV[3]/1000, exp_UV_mV[4]/1000, exp_UV_mV[5]/1000, exp_UV_mV[6]/1000, exp_UV_mV[7]/1000, exp_UV_mV[8]/1000);
+	return sprintf(buf, "1500mhz: %d mV\n1400mhz: %d mV\n1300mhz: %d mV\n1200mhz: %d mV\n1000mhz: %d mV\n800mhz: %d mV\n400mhz: %d mV\n200mhz: %d mV\n100mhz: %d mV\n", exp_UV_mV[0]/1000, exp_UV_mV[1]/1000, exp_UV_mV[2]/1000, exp_UV_mV[3]/1000, exp_UV_mV[4]/1000, exp_UV_mV[5]/1000, exp_UV_mV[6]/1000, exp_UV_mV[7]/1000, exp_UV_mV[8]/1000);
 
 }
 

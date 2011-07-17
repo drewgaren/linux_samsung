@@ -78,7 +78,7 @@ const unsigned long int_volt_max = 1250000;
 
 static struct s5pv210_dvs_conf dvs_conf[] = {
 	[L0] = {
-		.arm_volt   = 1520000,
+		.arm_volt   = 1472000,
 		.int_volt   = 1250000,
 	},
 	[L1] = {
@@ -120,7 +120,7 @@ static u32 clkdiv_val[9][11] = {
 	 * HCLK_DSYS, PCLK_DSYS, HCLK_PSYS, PCLK_PSYS, ONEDRAM,
 	 * MFC, G3D }
 	 */
-	/* L0 : [1400/200/200/100][166/83][133/66][200/200] */
+	/* L0 : [1500/200/200/100][166/83][133/66][200/200] */
 	{0, 6, 6, 1, 3, 1, 4, 1, 3, 0, 0},
 	/* L1 : [1400/200/200/100][166/83][133/66][200/200] */
 	{0, 6, 6, 1, 3, 1, 4, 1, 3, 0, 0},
@@ -197,7 +197,7 @@ static struct s3c_freq clk_info[] = {
 		.pclk_dsys  = 83375,
 	},
 	[L5] = {	/* L2: 800MHz */
-		.fclk       = 800000,
+		.fclk       = 800000,u
 		.armclk     = 800000,
 		.hclk_tns   = 0,
 		.hclk       = 133000,
