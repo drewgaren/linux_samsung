@@ -197,7 +197,7 @@ static struct s3c_freq clk_info[] = {
 		.pclk_dsys  = 83375,
 	},
 	[L5] = {	/* L2: 800MHz */
-		.fclk       = 800000,u
+		.fclk       = 800000,
 		.armclk     = 800000,
 		.hclk_tns   = 0,
 		.hclk       = 133000,
