@@ -56,7 +56,7 @@ extern int exp_UV_mV[8];
 
 /* frequency */
 static struct cpufreq_frequency_table freq_table[] = {
-	{L0, 1500*1000},
+	{L0, 1520*1000},
 	{L1, 1400*1000},
 	{L2, 1300*1000},
 	{L3, 1200*1000},
@@ -90,27 +90,27 @@ static struct s5pv210_dvs_conf dvs_conf[] = {
 		.int_volt   = 1200000,
 	},
 	[L3] = {
-		.arm_volt   = 1350000,
+		.arm_volt   = 1300000,
 		.int_volt   = 1150000,
 	},
 	[L4] = {
-		.arm_volt   = 1250000,
-		.int_volt   = 1100000,
-	},
-	[L5] = {
 		.arm_volt   = 1200000,
 		.int_volt   = 1100000,
 	},
+	[L5] = {
+		.arm_volt   = 1150000,
+		.int_volt   = 1100000,
+	},
 	[L6] = {
-		.arm_volt   = 1050000,
+		.arm_volt   = 1000000,
 		.int_volt   = 1100000,
 	},
 	[L7] = {
-		.arm_volt   = 950000,
+		.arm_volt   = 900000,
 		.int_volt   = 1100000,
 	},
 	[L8] = {
-		.arm_volt   = 950000,
+		.arm_volt   = 900000,
 		.int_volt   = 1000000,
 	},
 };
