@@ -72,7 +72,7 @@ struct s5pv210_dvs_conf {
 	unsigned long       int_volt;   /* uV */
 };
 
-const unsigned long arm_volt_max = 1520000;
+const unsigned long arm_volt_max = 1450000;
 const unsigned long int_volt_max = 1250000;
 
 static struct s5pv210_dvs_conf dvs_conf[] = {
@@ -81,37 +81,34 @@ static struct s5pv210_dvs_conf dvs_conf[] = {
 		.int_volt   = 1250000,
 	},
 	[L1] = {
-		.arm_volt   = 1450000,
-		.int_volt   = 1250000,
+		.arm_volt   = 1250000,
+		.int_volt   = 1210000,
 	},
 	[L2] = {
-		.arm_volt   = 1350000,
-		.int_volt   = 1200000,
+		.arm_volt   = 1150000,
+		.int_volt   = 1110000,
 	},
 	[L3] = {
-		.arm_volt   = 1250000,
-		.int_volt   = 1150000,
+		.arm_volt   = 950000,
+		.int_volt   = 910000,
 	},
 	[L4] = {
-		.arm_volt   = 1150000,
-		.int_volt   = 1100000,
+		.arm_volt   = 750000,
+		.int_volt   = 710000,
 	},
 	[L5] = {
-		.arm_volt   = 1125000,
-		.int_volt   = 1100000,
+		.arm_volt   = 350000,
+		.int_volt   = 310000,
 	},
 	[L6] = {
-		.arm_volt   = 950000,
-		.int_volt   = 1100000,
+		.arm_volt   = 150000,
+		.int_volt   = 110000,
 	},
 	[L7] = {
-		.arm_volt   = 850000,
-		.int_volt   = 1100000,
+		.arm_volt   = 50000,
+		.int_volt   = 10000,
 	},
-	[L8] = {
-		.arm_volt   = 850000,
-		.int_volt   = 1000000,
-	},
+
 };
 
 static u32 clkdiv_val[8][11] = {
@@ -120,7 +117,7 @@ static u32 clkdiv_val[8][11] = {
 	 * MFC, G3D }
 	 */
 	/* L0 : [1500/200/200/100][166/83][133/66][200/200] */
-	{0, 6, 6, 1, 3, 1, 4, 1, 3, 0, 0}
+	{0, 6, 6, 1, 3, 1, 4, 1, 3, 0, 0},
 	/* L1 : [1300/200/200/100][166/83][133/66][200/200] */
 	{0, 5, 5, 1, 3, 1, 4, 1, 3, 0, 0},
 	/* L2 : [1200/200/200/100][166/83][133/66][200/200] */
@@ -343,19 +340,16 @@ static void s5pv210_cpufreq_clksrcs_MPLL2APLL(unsigned int index,
 			/* APLL FOUT becomes 1500 Mhz */
                 	__raw_writel(PLL45XX_APLL_VAL_1500, S5P_APLL_CON);
 			break;
+
 		case L1:
-			/* APLL FOUT becomes 1400 Mhz */
-                	__raw_writel(PLL45XX_APLL_VAL_1400, S5P_APLL_CON);
-			break;
-		case L2:
                         /* APLL FOUT becomes 1300 Mhz */
                         __raw_writel(PLL45XX_APLL_VAL_1300, S5P_APLL_CON);
                         break;
-		case L3:
+		case L2:
 			/* APLL FOUT becomes 1200 Mhz */
                         __raw_writel(PLL45XX_APLL_VAL_1200, S5P_APLL_CON);
                         break;
-		case L4:
+		case L3:
 			/* APLL FOUT becomes 1000 Mhz */
                         __raw_writel(PLL45XX_APLL_VAL_1000, S5P_APLL_CON);
                         break;
