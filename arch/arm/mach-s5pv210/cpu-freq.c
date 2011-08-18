@@ -86,13 +86,12 @@ static struct s5pv210_dvs_conf dvs_conf[] = {
 	},
 	[L2] = {
 		.arm_volt   = 1230000,
-		.int_volt   = 1110000,
+		.int_volt   = 1125000,
 	},
 	[L3] = {
 		.arm_volt   = 1145000,
-		.int_volt   = 1010000,
+		.int_volt   = 1025000,
 	},
-	
 	[L4] = {
 		.arm_volt   = 1120000,
 		.int_volt   = 975000,
@@ -103,16 +102,15 @@ static struct s5pv210_dvs_conf dvs_conf[] = {
 	},
 	[L6] = {
 		.arm_volt   = 920000,
-		.int_volt   = 700000,
+		.int_volt   = 750000,
 	},
-	
 	[L7] = {
 		.arm_volt   = 920000,
-		.int_volt   = 700000,
+		.int_volt   = 750000,
 	},
 
-
 };
+
 
 static u32 clkdiv_val[8][11] = {
 	/*{ APLL, A2M, HCLK_MSYS, PCLK_MSYS,
@@ -151,9 +149,14 @@ static struct s3c_freq clk_info[] = {
 	},
 
 
+
 	[L1] = {	/* L1: 1.2GHz */
 		.fclk       = 1200000,
 		.armclk     = 1200000,
+
+	[L1] = {	/* L0: 1.3GHz */
+		.fclk       = 1300000,
+		.armclk     = 1300000,
 		.hclk_tns   = 0,
 		.hclk       = 133000,
 		.pclk       = 66000,
