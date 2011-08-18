@@ -149,14 +149,9 @@ static struct s3c_freq clk_info[] = {
 	},
 
 
-
 	[L1] = {	/* L1: 1.2GHz */
 		.fclk       = 1200000,
 		.armclk     = 1200000,
-
-	[L1] = {	/* L0: 1.3GHz */
-		.fclk       = 1300000,
-		.armclk     = 1300000,
 		.hclk_tns   = 0,
 		.hclk       = 133000,
 		.pclk       = 66000,
@@ -165,6 +160,7 @@ static struct s3c_freq clk_info[] = {
 		.hclk_dsys  = 166750,
 		.pclk_dsys  = 83375,
 	},
+
 	[L2] = {	/* L2: 1GHz */
 		.fclk       = 1000000,
 		.armclk     = 1000000,
@@ -218,7 +214,7 @@ static struct s3c_freq clk_info[] = {
 		.hclk       = 133000,
 		.pclk       = 66000,
 		.hclk_msys  = 200000,
-		.pclk_msys  = 100000,
+		.pclk_msys  = 100000,u
 		.hclk_dsys  = 166750,
 		.pclk_dsys  = 83375,
 	},
