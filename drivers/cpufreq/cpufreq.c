@@ -33,7 +33,7 @@
 						"cpufreq-core", msg)
 
 /* UV */
-int exp_UV_mV[8] = { 1420000, 1310000,1210000, 1125000, 1100000, 1025000, 900000, 900000};
+int exp_UV_mV[8] = { 1440000, 1330000,1230000, 1145000, 1120000, 1045000, 920000, 920000};
 
 /**
  * The "cpufreq driver" - the arch- or hardware-dependent low
