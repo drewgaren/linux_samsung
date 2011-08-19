@@ -31,6 +31,10 @@
 #include <linux/firmware.h>
 #include <linux/bln.h>
 
+#ifdef CONFIG_BLD
+#include <linux/bld.h>
+#endif
+
 #define SCANCODE_MASK		0x07
 #define UPDOWN_EVENT_MASK	0x08
 #define ESD_STATE_MASK		0x10
@@ -58,6 +62,10 @@ struct cypress_touchkey_devdata {
 };
 
 static struct cypress_touchkey_devdata *blndevdata;
+
+#ifdef CONFIG_BLD
+static struct cypress_touchkey_devdata *blddevdata;
+#endif
 
 static int i2c_touchkey_read_byte(struct cypress_touchkey_devdata *devdata,
 					u8 *val)
@@ -396,7 +404,20 @@ static void cypress_touchkey_disable_led_notification(void){
 static struct bln_implementation cypress_touchkey_bln = {
 	.enable = cypress_touchkey_enable_led_notification,
 	.disable = cypress_touchkey_disable_led_notification,
+	.dim = disable_touchkey_backlights,
 };
+
+#ifdef CONFIG_BLD
+static void dim_touchkey_backlights()
+{
+    i2c_touchkey_write_byte(blddevdata, blddevdata->backlight_off);
+}
+
+static struct bld_implementation cypress_touchkey_bld = 
+    {
+  .dim = dim_touchkey_backlights,
+    };
+#endif
 
 static int cypress_touchkey_probe(struct i2c_client *client,
 		const struct i2c_device_id *id)
@@ -500,6 +521,11 @@ static int cypress_touchkey_probe(struct i2c_client *client,
 #ifdef CONFIG_GENERIC_BLN
 	blndevdata = devdata;
 	register_bln_implementation(&cypress_touchkey_bln);
+#endif
+
+#ifdef CONFIG_BLD
+blddevdata = devdata;
+register_bld_implementation(&cypress_touchkey_bld);
 #endif
 	return 0;
 
